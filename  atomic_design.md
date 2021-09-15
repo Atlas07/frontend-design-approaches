@@ -1,8 +1,5 @@
 # Architecture with atomic design
 
-Created: September 15, 2021 2:04 PM
-Tags: Career, Work
-
 ## Why this doc exists
 
 I have not found a good explanation of how to combine atomic design with react components. Consider this document as the best practices that work for me. Feel free to give feedback with fresh ideas and improvements.
