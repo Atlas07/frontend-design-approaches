@@ -472,8 +472,8 @@ Example of the `User` page component.
 
 ## Good to use with
 
-1. [https://storybook.js.org/] (https://storybook.js.org/)
-2. [https://styled-components.com/] (https://styled-components.com/)
+1. [https://storybook.js.org/](https://storybook.js.org/)
+2. [https://styled-components.com/](https://styled-components.com/)
 
 ## References
 
