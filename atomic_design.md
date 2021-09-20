@@ -17,7 +17,7 @@ const Page = ({ ...props }) => {
 	
 
   return (
-	  <Avatar {...props} />
+	  <AvatarStyled {...props} />
   );
 };
 
@@ -27,7 +27,9 @@ const AvatarStyled = styled(Avatar)`
   margin: 15px 20px;
   // ...another custom styles
 `;
+```
 
+```jsx
 // Avatar.tsx atom component
 const Avatar = ({ className, ...restProps }) => {
   return (
@@ -37,7 +39,7 @@ const Avatar = ({ className, ...restProps }) => {
 }
 ```
 
-- Sometimes atoms can be treated as molecules. The frontend team (or team lead) should resolve such issues. Avatar is a circle with `firstName` and `lastName` or image.  Split component more doesn't have sense. Button, Input, Checkbox are good examples of Atoms.
+- Sometimes atoms can be treated as molecules. The frontend team (or team lead) should resolve such issues. Avatar is a circle with `firstName` and `lastName` or image. Splitting component more makes no sense. Button, Input, Checkbox are good examples of Atoms.
 - If you use custom design the designer often provides such styling. [https://react-bootstrap.github.io/components/alerts](https://react-bootstrap.github.io/components/alerts) is a good example of pre-created atomic components. These components can be extended for custom needs.
 - Use general naming. `Avatar`, `Button` are a good names. `EmployeeModalFooter` is a bad one (hard to reuse outside Employee page or ouside modal)
 - If you need custom `UserButton` only once per project - create it inside `pages/UserPage` . There is no need to extract every component to atoms/molecules/organisms. Atomic design is about reusability of components.
@@ -98,7 +100,7 @@ Example of `Avatar` atom component.
 ## Molecule
 
 - A composition of atoms (or atom + smth else)
-- Often these are components that are used together in many places. (`Input` atom with close image → `SearchInput` molecule
+- Often these are components that are used together in many places. (`Input` atom with additional search icon → `SearchInput` molecule
 
 ```jsx
 import Checkbox, { Label } from '../../_atoms/Checkbox';
@@ -170,9 +172,11 @@ Example of molecule `Option` component.
 ## Organism
 
 - Composition of atom(s) and (or) molecules(s), sometimes with its own logic.
-- The Dropdown that contains `SearchField` for search, `Option` with `Checkbox` es. There is a logic and types for handing `Checkbox` selection, clearing all items.
+- The Dropdown that contains `SearchField` for search, `Option` with `Checkbox`'es. There is a logic and types for handing `Checkbox` selection, clearing all items.
 
 ```jsx
+import * as R from 'ramda';
+
 import Button, { ButtonVariants } from '../../_atoms/Button';
 import ModalContainer from '../../_atoms/ModalContainer';
 import Option, { Props as OptionProps } from '../../_molecules/Option';
@@ -324,8 +328,8 @@ Example of `Dropdown` organism component.
 
 # Template
 
-- Optional. Not every page should have it.
-- Used when exists common placing of components on the page.
+- Optional. Not every page (see below) should have it.
+- Used when common placing of components on the page exists.
 
 ```jsx
 type Props = {
